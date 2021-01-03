@@ -1,0 +1,53 @@
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px minmax(200px, 1fr) 100px; 
+    grid-auto-rows: minmax(150px, auto);
+    /* gap: 10px; */
+    grid-template-areas: 
+       "header" 
+       "playerOne" 
+       "board"
+       "playerTwo"
+       "footer";
+ }
+
+ header {
+    grid-area: header;
+    background-color: grey;
+ }
+
+ main {
+    grid-area: board;
+    background-color: aliceblue;
+    padding-top: 20px;
+ }
+
+ aside {
+    grid-area: playerOne;
+    background-color: orange;
+    
+ }
+ 
+ nav {
+    grid-area: playerTwo;
+    background-color: blue;
+    
+ }
+
+ footer {
+    grid-area: footer;
+    background-color: rgb(3, 3, 3);
+    color: white;
+ }
+
+ .container {
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: minmax(50px, auto) minmax(150px, auto) minmax(150px, auto) minmax(50px, auto);
+    grid-template-areas: 
+    "header header header" 
+    "playerOne board playerTwo"
+    "playerOne board playerTwo" 
+    "footer footer footer";
+ }
