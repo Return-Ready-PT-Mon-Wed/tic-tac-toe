@@ -30,13 +30,14 @@ $(".board-btn").on('click', (event) => {
         if(winner == 'X'){
             alert('Player X Wins');
         }
-        if(winner == 'O'){
+        else if(winner == 'O'){
             alert('Player O Wins');
         }
-
-        totalMoves++;
-        if(totalMoves == 9){
-            alert('Game Over');
+        else {
+            totalMoves++;
+            if(totalMoves == 9){
+                alert('Game Over');
+            }
         }
 
     }
@@ -61,7 +62,42 @@ function isWinner(gameBoard){
         return isColumnWinner;
     }
 
+    // check diagonal
+    const isDiagonalWinner = checkDiagonalWinner(gameBoard, 2, 7, 2);
+    if(isDiagonalWinner == 'X' || isDiagonalWinner == 'O') {
+        return isDiagonalWinner;
+    }
 
+    const isDiagonalWinnerTwo = checkDiagonalWinner(gameBoard, 0, 9, 4);
+    if(isDiagonalWinnerTwo == 'X' || isDiagonalWinnerTwo == 'O') {
+        return isDiagonalWinnerTwo;
+    }
+
+
+}
+
+function checkDiagonalWinner(gameBoard, start, max, increment) {
+    let countX = 0;
+    let countO = 0;
+
+    for(let i = start; i < max; i+=increment){
+        if ($(gameBoard[i]).html() == 'X') { countX++; }
+        if ($(gameBoard[i]).html() == 'O') { countO++; }
+    }
+
+    console.log('x: ' + countX);
+    console.log('o:' + countO);
+
+    if (countX == 3) {
+        return 'X';
+    }
+    else if (countO == 3) {
+        return 'O';
+    }
+    else {
+        countX = 0;
+        countO = 0;
+    }
 }
 
 function checkColumnWinner(gameBoard) {
@@ -71,18 +107,10 @@ function checkColumnWinner(gameBoard) {
         let countX = 0;
         let countO = 0;
 
-        // for(let j = i; j < 9; j+3){
-        //     if ($(gameBoard[j]).html() == 'X') { countX++; }
-        //     if ($(gameBoard[j]).html() == 'O') { countO++; }
-        // }
-        if ($(gameBoard[i]).html() == 'X') { countX++; }
-        if ($(gameBoard[i]).html() == 'O') { countO++; }
-
-        if ($(gameBoard[i+3]).html() == 'X') { countX++; }
-        if ($(gameBoard[i+3]).html() == 'O') { countO++; }
-
-        if ($(gameBoard[i+6]).html() == 'X') { countX++; }
-        if ($(gameBoard[i+6]).html() == 'O') { countO++; }
+        for(let j = i; j < 9; j+=3){
+            if ($(gameBoard[j]).html() == 'X') { countX++; }
+            if ($(gameBoard[j]).html() == 'O') { countO++; }
+        }
 
         console.log('x: ' + countX);
         console.log('o:' + countO);
@@ -99,7 +127,7 @@ function checkColumnWinner(gameBoard) {
         }
 
     }
-    
+
 }
 
 function checkRowWinner(gameBoard) {
