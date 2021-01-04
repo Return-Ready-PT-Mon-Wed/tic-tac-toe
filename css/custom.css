@@ -9,8 +9,8 @@
        "header" 
        "playerOne" 
        "board"
-       "playerTwo"
-       "footer";
+       "playerTwo";
+       /* "footer"; */
  }
 
  header {
@@ -36,18 +36,64 @@
     
  }
 
- footer {
-    grid-area: footer;
-    background-color: rgb(3, 3, 3);
-    color: white;
+ .board-btn {
+     height: 6em;
+     background-color: black;
  }
+
+button.orange { 
+    background-color: orange; 
+}
+
+button.blue { 
+    background-color: blue; 
+}
+
+button.green { 
+    background-color: green; 
+}
+
+button.red { 
+    background-color: red; 
+}
+
+
+  /* .containerBoard {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px minmax(200px, 1fr) 100px; 
+    grid-auto-rows: minmax(150px, auto);
+    grid-template-areas: 
+    "board-btn";
+ }
+
+ .board-btn {
+    grid-area: board-B;
+ }
+
+ .containerBoard {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: minmax(50px, auto) minmax(50px, auto) minmax(50px, auto);
+    grid-template-areas: 
+     "board-B board-B board-B"
+     "board-B board-B board-B" 
+     "board-B board-B board-B";
+ } */
 
  .container {
     grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: minmax(50px, auto) minmax(150px, auto) minmax(150px, auto) minmax(50px, auto);
+    grid-template-rows: minmax(50px, auto) minmax(150px, auto) minmax(150px, auto);
+    /* minmax(50px, auto); */
     grid-template-areas: 
     "header header header" 
     "playerOne board playerTwo"
-    "playerOne board playerTwo" 
-    "footer footer footer";
+    "playerOne board playerTwo";
+    /* "footer footer footer"; */
  }
+
+  /* footer {
+    grid-area: footer;
+    background-color: rgb(3, 3, 3);
+    color: white;
+ } */
