@@ -1,16 +1,39 @@
+@media (max-width: 576px) {
+    #infoPara{
+        display: none;
+    }
+
+    #gameTitle {
+        font-size: 2em;
+    }
+
+    aside,
+    aside h3,
+    nav,
+    nav h3,
+    .pTurnBtn {
+        font-size: small;
+    }
+
+}
+
+@media (min-width: 576px) {
+    #infoPara{
+        display: block;
+    }
+}
+
 .container {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 300px minmax(200px, 1fr) 100px; 
     grid-auto-rows: minmax(150px, auto);
-    /* gap: 10px; */
     grid-template-areas: 
        "header" 
        "playerOne" 
        "board"
        "playerTwo";
-       /* "footer"; */
  }
 
  header,
@@ -35,14 +58,14 @@
     grid-area: playerOne;
     background-color: orange;
     color: white;
-    margin-right: 1em;    
+    /* margin-right: 1em;     */
  }
  
  nav {
     grid-area: playerTwo;
     background-color: blue;
     color: white;
-    margin-left: 1em;    
+    /* margin-left: 1em;     */
  }
 
  .board-btn {

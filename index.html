@@ -14,8 +14,8 @@
 <body>
     <div class="container">
         <header>
-            <h1 class="text-center">Tic-Tac-Toe</h1>
-            <P class="text-center">&copy; 01/03/2020 Nick Satinover. All Rights Reserved</P>
+            <h1 id="gameTitle" class="text-center">Tic-Tac-Toe</h1>
+            <p id="infoPara" class="text-center">&copy; 01/03/2020 Nick Satinover. All Rights Reserved</p>
             <div class="text-center pb-2">
                 <button type="button" id="newGameBtn" class="btn btn-info btn-lg">New Game</button>
             </div>
@@ -24,9 +24,9 @@
 
         <aside>
 
-            <h3 class="text-center">Player X</h3>
+            <h3 class="text-center pt-1">Player X</h3>
             <hr />
-            <button id="pOneTurnBtn" class="btn btn-secondary btn-lg btn-block"></button>
+            <button id="pOneTurnBtn" class="btn btn-secondary btn-lg btn-block pTurnBtn"></button>
             <div class="labelScore">
                 <label>Score: </label>
                 <label id="playerXScore"></label>
@@ -70,7 +70,7 @@
 
         <nav>
 
-            <h3 class="text-center">Player O</h3>
+            <h3 class="text-center pt-1">Player O</h3>
             <hr />
             <button id="pTwoTurnBtn" class="btn btn-secondary btn-lg btn-block"></button>
             <div class="labelScore">
