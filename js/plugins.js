@@ -49,26 +49,78 @@ function isWinner(gameBoard){
     //     console.log( $(gameSpace).html() )
     // });
 
-    let j = 0;
-    let k = 3;
-
     // check rows
-    for(let i = 0; i < 3; i++){
+    const isRowWinner = checkRowWinner(gameBoard);
+    if(isRowWinner == 'X' || isRowWinner == 'O') {
+        return isRowWinner;
+    }
 
-        let countX = 0; 
+    // check columns
+    const isColumnWinner = checkColumnWinner(gameBoard);
+    if(isColumnWinner == 'X' || isColumnWinner == 'O') {
+        return isColumnWinner;
+    }
+
+
+}
+
+function checkColumnWinner(gameBoard) {
+
+    for (let i = 0; i < 3; i++) {
+
+        let countX = 0;
         let countO = 0;
 
-        for(; j < k; j++){
-            if( $(gameBoard[j]).html() == 'X') { countX++; }
-            if( $(gameBoard[j]).html() == 'O') { countO++; }
+        // for(let j = i; j < 9; j+3){
+        //     if ($(gameBoard[j]).html() == 'X') { countX++; }
+        //     if ($(gameBoard[j]).html() == 'O') { countO++; }
+        // }
+        if ($(gameBoard[i]).html() == 'X') { countX++; }
+        if ($(gameBoard[i]).html() == 'O') { countO++; }
+
+        if ($(gameBoard[i+3]).html() == 'X') { countX++; }
+        if ($(gameBoard[i+3]).html() == 'O') { countO++; }
+
+        if ($(gameBoard[i+6]).html() == 'X') { countX++; }
+        if ($(gameBoard[i+6]).html() == 'O') { countO++; }
+
+        console.log('x: ' + countX);
+        console.log('o:' + countO);
+
+        if (countX == 3) {
+            return 'X';
+        }
+        else if (countO == 3) {
+            return 'O';
+        }
+        else {
+            countX = 0;
+            countO = 0;
+        }
+
+    }
+    
+}
+
+function checkRowWinner(gameBoard) {
+    let j = 0;
+    let k = 3;
+    for (let i = 0; i < 3; i++) {
+
+        let countX = 0;
+        let countO = 0;
+
+        for (; j < k; j++) {
+            if ($(gameBoard[j]).html() == 'X') { countX++; }
+            if ($(gameBoard[j]).html() == 'O') { countO++; }
         }
         console.log('x: ' + countX);
         console.log('o:' + countO);
 
-        if( countX == 3 ) {
-            return 'X'; 
-        } 
-        else if( countO == 3) {
+        if (countX == 3) {
+            return 'X';
+        }
+        else if (countO == 3) {
             return 'O';
         }
         else {
@@ -78,7 +130,6 @@ function isWinner(gameBoard){
         }
 
     }
-
 }
 
 function startGame() {
