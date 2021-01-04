@@ -13,9 +13,16 @@
        /* "footer"; */
  }
 
+ header,
+ main,
+ aside,
+ nav {
+    border: solid black 1px;
+ }
+
  header {
     grid-area: header;
-    background-color: grey;
+    background-color: rgb(220, 227, 233);
  }
 
  main {
@@ -27,15 +34,15 @@
  aside {
     grid-area: playerOne;
     background-color: orange;
-    margin-right: 1em;
-    
+    color: white;
+    margin-right: 1em;    
  }
  
  nav {
     grid-area: playerTwo;
     background-color: blue;
-    margin-left: 1em;
-    
+    color: white;
+    margin-left: 1em;    
  }
 
  .board-btn {
@@ -43,32 +50,31 @@
      background-color: black;
  }
 
-button.orange { 
+button.orange,
+button.orange:hover { 
     background-color: orange; 
 }
 
-button.blue { 
+button.blue,
+button.blue:hover { 
     background-color: blue; 
 }
 
-button.green { 
+button.green,
+button.green:hover { 
     background-color: green; 
 }
 
-button.red { 
+button.red,
+button.red:hover { 
     background-color: red; 
 }
 
 .labelScore {
     font-size: 1.5em;
-    color: white;
     font-weight: bolder;
     padding: 10px 0 0 10px;
 }
-
-/* #newGameBtn {
-    padding: 0 10%;
-} */
 
   /* .containerBoard {
     height: 100vh;
@@ -94,18 +100,10 @@ button.red {
  } */
 
  .container {
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: minmax(50px, auto) minmax(150px, auto) minmax(150px, auto);
-    /* minmax(50px, auto); */
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: minmax(200px, auto) minmax(200px, auto) minmax(250px, auto);
     grid-template-areas: 
-    "header header header" 
-    "playerOne board playerTwo"
-    "playerOne board playerTwo";
-    /* "footer footer footer"; */
+    "playerOne header playerTwo" 
+    "board board board"
+    "board board board";
  }
-
-  /* footer {
-    grid-area: footer;
-    background-color: rgb(3, 3, 3);
-    color: white;
- } */

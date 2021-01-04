@@ -1,6 +1,6 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 
-let currentTurn = 'p1';
+let currentTurn = 'pX';
 let totalMoves = 0;
 
 let $playerXScore = 0;
@@ -13,7 +13,7 @@ const { $pOneTurnBtn, $pTwoTurnBtn } = startGame();
 
 // Event listener for new game button
 $("#newGameBtn").on('click', () => {
-    currentTurn = 'p1';
+    currentTurn = 'pX';
     totalMoves = 0;
     
     $gameSpots = $('.board-btn').toArray();
@@ -42,15 +42,15 @@ $(".board-btn").on('click', (event) => {
 
     if (!$(thisSquare).hasClass('orange') && !$(thisSquare).hasClass('blue')) {
 
-        if (currentTurn == 'p1') {
+        if (currentTurn == 'pX') {
             $(thisSquare).toggleClass('orange');
             OrangeMoved(thisSquare);
-            currentTurn = 'p2';
+            currentTurn = 'pO';
         }
         else {
             $(thisSquare).toggleClass('blue');
             BlueMoved(thisSquare);
-            currentTurn = 'p1';
+            currentTurn = 'pX';
         }
 
         const $gameSpots = $('.board-btn').toArray();
