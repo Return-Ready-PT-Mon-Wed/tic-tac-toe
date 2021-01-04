@@ -27,12 +27,14 @@
  aside {
     grid-area: playerOne;
     background-color: orange;
+    margin-right: 1em;
     
  }
  
  nav {
     grid-area: playerTwo;
     background-color: blue;
+    margin-left: 1em;
     
  }
 
@@ -57,6 +59,16 @@ button.red {
     background-color: red; 
 }
 
+.labelScore {
+    font-size: 1.5em;
+    color: white;
+    font-weight: bolder;
+    padding: 10px 0 0 10px;
+}
+
+/* #newGameBtn {
+    padding: 0 10%;
+} */
 
   /* .containerBoard {
     height: 100vh;

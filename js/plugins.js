@@ -3,12 +3,40 @@
 let currentTurn = 'p1';
 let totalMoves = 0;
 
-// const $gameSpots = $('.board-btn').toArray();
-// console.log( $($gameSpots[3]).html() );
+let $playerXScore = 0;
+let $playerOScore = 0;
 
+$('#playerXScore').text($playerXScore);
+$('#playerOScore').text($playerOScore);
 
 const { $pOneTurnBtn, $pTwoTurnBtn } = startGame();
 
+// Event listener for new game button
+$("#newGameBtn").on('click', () => {
+    currentTurn = 'p1';
+    totalMoves = 0;
+    
+    $gameSpots = $('.board-btn').toArray();
+    $gameSpots.forEach(spot => {
+        $(spot).html('-');
+        if($(spot).hasClass('orange')){
+            $(spot).removeClass('orange');
+        }
+        if($(spot).hasClass('blue')){
+            $(spot).removeClass('blue');
+        }
+    });
+
+    $($pOneTurnBtn).removeClass('red');
+    $($pOneTurnBtn).addClass('green');
+    $($pOneTurnBtn).html('Your Turn');
+
+    $($pTwoTurnBtn).removeClass('green');
+    $($pTwoTurnBtn).addClass('red');
+    $($pTwoTurnBtn).html('Waiting');
+});
+
+// Event listener for each game space
 $(".board-btn").on('click', (event) => {
     const thisSquare = event.target;
 
@@ -29,9 +57,13 @@ $(".board-btn").on('click', (event) => {
         const winner = isWinner($gameSpots);
         if(winner == 'X'){
             alert('Player X Wins');
+            $playerXScore++;
+            $('#playerXScore').text($playerXScore);
         }
         else if(winner == 'O'){
             alert('Player O Wins');
+            $playerOScore++;
+            $('#playerOScore').text($playerOScore);
         }
         else {
             totalMoves++;
