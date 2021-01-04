@@ -58,7 +58,7 @@ $(".board-btn").on('click', (event) => {
         }
 
         // Check is there is a winner, if so start new game with reset board
-        checkForWinner();
+        setTimeout(checkForWinner, 1000);
     }
 
 });
