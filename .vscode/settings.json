@@ -1,9 +1,3 @@
 {
-    "liveServer.settings.port": 5502,
-    "extensions.ignoreRecommendations": true,
-    "files.autoSave": "off"
-    "extensions.ignoreRecommendations": true,
-    "files.autoSave": "off"
-    "extensions.ignoreRecommendations": true,
-    "files.autoSave": "off"
+    "liveServer.settings.port": 5502
 }
