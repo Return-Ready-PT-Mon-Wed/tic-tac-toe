@@ -25,6 +25,14 @@ function calculateWinner(player) {
         tilesClicked = 0;
     }
 }
+function calculateTie() {
+    for (let i=0; i<allTiles.length; i++) {
+        if (allTiles[i].className !== "clicked") {
+            return false;
+        }
+    }
+    return true;
+}
 bluePlayer = {
     name: "blue",
     color: "#76aef9",
@@ -47,7 +55,9 @@ document.addEventListener('click', (event) => {
             if(calculateWinner(player) == player) {
                 p.textContent = `${player.name} wins!`;
             }
-            else {
+            else if (calculateTie()){
+                p.textContent = "it's a tie.";
+            } else {
                 changePlayer();
             }
         }
@@ -82,4 +92,9 @@ const winningCombos = [
     //diagonal
     [document.getElementById("space1"), document.getElementById("space5"), document.getElementById("space9")],
     [document.getElementById("space3"), document.getElementById("space5"), document.getElementById("space7")],
+];
+const allTiles = [
+    document.getElementById("space1"), document.getElementById("space2"), document.getElementById("space3"),
+    document.getElementById("space4"), document.getElementById("space5"), document.getElementById("space6"),
+    document.getElementById("space7"), document.getElementById("space8"), document.getElementById("space9")
 ];
