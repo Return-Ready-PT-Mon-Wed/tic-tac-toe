@@ -1,0 +1,132 @@
+@media (max-width: 576px) {
+    #infoPara{
+        display: none;
+    }
+
+    #gameTitle {
+        font-size: 2em;
+    }
+
+    aside,
+    aside h3,
+    nav,
+    nav h3,
+    .pTurnBtn {
+        font-size: small;
+    }
+
+}
+
+@media (min-width: 576px) {
+    #infoPara{
+        display: block;
+    }
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px minmax(200px, 1fr) 100px; 
+    grid-auto-rows: minmax(150px, auto);
+    grid-template-areas: 
+       "header" 
+       "playerOne" 
+       "board"
+       "playerTwo";
+ }
+
+ header,
+ main,
+ aside,
+ nav {
+    border: solid black 1px;
+ }
+
+ header {
+    grid-area: header;
+    background-color: rgb(220, 227, 233);
+ }
+
+ main {
+    grid-area: board;
+    background-color: aliceblue;
+    padding-top: 20px;
+ }
+
+ aside {
+    grid-area: playerOne;
+    background-color: orange;
+    color: white;
+    /* margin-right: 1em;     */
+ }
+ 
+ nav {
+    grid-area: playerTwo;
+    background-color: blue;
+    color: white;
+    /* margin-left: 1em;     */
+ }
+
+ .board-btn {
+     height: 6em;
+     background-color: black;
+ }
+
+button.orange,
+button.orange:hover { 
+    background-color: orange; 
+}
+
+button.blue,
+button.blue:hover { 
+    background-color: blue; 
+}
+
+button.green,
+button.green:hover { 
+    background-color: green; 
+}
+
+button.red,
+button.red:hover { 
+    background-color: red; 
+}
+
+.labelScore {
+    font-size: 1.5em;
+    font-weight: bolder;
+    padding: 10px 0 0 10px;
+}
+
+  /* .containerBoard {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px minmax(200px, 1fr) 100px; 
+    grid-auto-rows: minmax(150px, auto);
+    grid-template-areas: 
+    "board-btn";
+ }
+
+ .board-btn {
+    grid-area: board-B;
+ }
+
+ .containerBoard {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: minmax(50px, auto) minmax(50px, auto) minmax(50px, auto);
+    grid-template-areas: 
+     "board-B board-B board-B"
+     "board-B board-B board-B" 
+     "board-B board-B board-B";
+ } */
+
+ .container {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: minmax(200px, auto) minmax(200px, auto) minmax(250px, auto);
+    grid-template-areas: 
+    "playerOne header playerTwo" 
+    "board board board"
+    "board board board";
+ }
